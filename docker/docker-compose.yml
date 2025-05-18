@@ -1,0 +1,10 @@
+services:
+  bsuite-api:
+    image: bsuite-api
+    environment:
+      - ALLOWED_ORIGINS=*
+      - ENVIRONMENT=development
+    volumes:
+      - ../:/app
+    ports:
+      - "8080:8080"

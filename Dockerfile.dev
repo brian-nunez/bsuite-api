@@ -1,0 +1,12 @@
+FROM golang:1.23.1-alpine
+
+WORKDIR /app
+
+RUN --mount=target=/root/.cache,type=cache go install github.com/air-verse/air@latest
+
+COPY go.mod go.sum ./
+RUN --mount=target=/root/.cache,type=cache go mod download
+COPY .air.toml ./
+
+EXPOSE 8080
+CMD ["air", "-c", ".air.toml"]
