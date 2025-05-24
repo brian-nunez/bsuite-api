@@ -1,3 +1,4 @@
-/tmp
-/bin
-/binaries
+tmp/
+bin/
+binaries/
+logs/
