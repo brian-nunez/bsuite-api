@@ -1,5 +1,7 @@
 package errors
 
+import "net/http"
+
 type ErrorType string
 
 const (
@@ -58,7 +60,7 @@ func Custom() *errorBuilder {
 
 func InvalidRequest() *errorBuilder {
 	return &errorBuilder{
-		httpStatusCode: 400,
+		httpStatusCode: http.StatusBadRequest,
 		errorCode:      string(ErrInvalidRequest),
 		message:        "Invalid Request",
 	}
@@ -66,7 +68,7 @@ func InvalidRequest() *errorBuilder {
 
 func Unauthorized() *errorBuilder {
 	return &errorBuilder{
-		httpStatusCode: 401,
+		httpStatusCode: http.StatusUnauthorized,
 		errorCode:      string(ErrUnauthorized),
 		message:        "Invalid Request",
 	}
@@ -74,7 +76,7 @@ func Unauthorized() *errorBuilder {
 
 func NotFound() *errorBuilder {
 	return &errorBuilder{
-		httpStatusCode: 404,
+		httpStatusCode: http.StatusNotFound,
 		errorCode:      string(ErrNotFound),
 		message:        "Invalid Request",
 	}
@@ -82,7 +84,7 @@ func NotFound() *errorBuilder {
 
 func NotAllowed() *errorBuilder {
 	return &errorBuilder{
-		httpStatusCode: 405,
+		httpStatusCode: http.StatusMethodNotAllowed,
 		errorCode:      string(ErrNotAllowed),
 		message:        "Invalid Request",
 	}
@@ -90,7 +92,7 @@ func NotAllowed() *errorBuilder {
 
 func InternalServerError() *errorBuilder {
 	return &errorBuilder{
-		httpStatusCode: 500,
+		httpStatusCode: http.StatusInternalServerError,
 		errorCode:      string(ErrInternalServerError),
 		message:        "Invalid Request",
 	}
@@ -98,7 +100,7 @@ func InternalServerError() *errorBuilder {
 
 func ServiceNotAvailable() *errorBuilder {
 	return &errorBuilder{
-		httpStatusCode: 503,
+		httpStatusCode: http.StatusServiceUnavailable,
 		errorCode:      string(ErrServiceUnavailable),
 		message:        "Invalid Request",
 	}
@@ -106,17 +108,17 @@ func ServiceNotAvailable() *errorBuilder {
 
 func GenerateByStatusCode(code int) *errorBuilder {
 	switch code {
-	case 400:
+	case http.StatusBadRequest:
 		return InvalidRequest()
-	case 401:
+	case http.StatusUnauthorized:
 		return Unauthorized()
-	case 404:
+	case http.StatusNotFound:
 		return NotAllowed()
-	case 405:
+	case http.StatusMethodNotAllowed:
 		return NotAllowed()
-	case 500:
+	case http.StatusInternalServerError:
 		return InternalServerError()
-	case 503:
+	case http.StatusServiceUnavailable:
 		return ServiceNotAvailable()
 	}
 
