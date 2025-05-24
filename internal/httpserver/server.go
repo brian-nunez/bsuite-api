@@ -10,6 +10,7 @@ func Bootstrap() *echo.Echo {
 		WithDefaultMiddleware().
 		WithErrorHandler().
 		WithRoutes(v1.RegisterRoutes).
+		WithNotFound().
 		Build()
 
 	return server

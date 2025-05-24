@@ -1,6 +1,7 @@
 package httpserver
 
 import (
+	"github.com/brian-nunez/bsuite-api/internal/handlers/errors"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 )
@@ -32,22 +33,29 @@ func (b *ServerBuilder) WithRoutes(register func(e *echo.Echo)) *ServerBuilder {
 func (b *ServerBuilder) WithErrorHandler() *ServerBuilder {
 	b.e.HTTPErrorHandler = func(err error, c echo.Context) {
 		code := echo.ErrInternalServerError.Code
-		message := "Internal Server Error"
 
 		if he, ok := err.(*echo.HTTPError); ok {
 			code = he.Code
-			message = he.Message.(string)
 		}
 
 		c.Logger().Error(err)
 
 		if !c.Response().Committed {
-			_ = c.JSON(code, map[string]any{
-				"error":   true,
-				"message": message,
-			})
+			response := errors.GenerateByStatusCode(code).Build()
+			_ = c.JSON(response.HTTPStatusCode, response)
 		}
 	}
+
+	return b
+}
+
+func (b *ServerBuilder) WithNotFound() *ServerBuilder {
+	notFound := func(c echo.Context) error {
+		response := errors.NotFound().Build()
+		return c.JSON(response.HTTPStatusCode, response)
+	}
+	b.e.RouteNotFound("*", notFound)
+	b.e.RouteNotFound("/*", notFound)
 
 	return b
 }
