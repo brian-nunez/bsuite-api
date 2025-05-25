@@ -4,9 +4,13 @@ WORKDIR /app
 
 RUN --mount=target=/root/.cache,type=cache go install github.com/air-verse/air@latest
 
+RUN --mount=target=/root/.cache,type=cache go install github.com/brian-nunez/m3u8-cli@latest
+
 COPY go.mod go.sum ./
 RUN --mount=target=/root/.cache,type=cache go mod download
 COPY .air.toml ./
+
+RUN --mount=target=/root/.cache,type=cache apk add --no-cache ffmpeg
 
 EXPOSE 8080
 CMD ["air", "-c", ".air.toml"]
