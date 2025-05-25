@@ -11,6 +11,9 @@ func RegisterRoutes(e *echo.Echo) {
 
 	schedulerGroup := v1Group.Group("/scheduler")
 	schedulerGroup.GET("/tasks", tasks.ReadAllTasksHandler)
+	schedulerGroup.GET("/task", tasks.GetTaskByProcessId)
+	schedulerGroup.GET("/task/log/:processId/raw", tasks.ReadProcessLogAsRaw)
+	schedulerGroup.GET("/task/log/:processId/json", tasks.ReadProcessLogAsJSON)
 	schedulerGroup.GET("/tasks/completed", tasks.ReadAllCompletedTasksHandler)
 	schedulerGroup.GET("/tasks/pending", tasks.ReadAllPendingTasksHandler)
 	schedulerGroup.GET("/tasks/failed", tasks.ReadAllFailedTasksHandler)

@@ -1,5 +1,5 @@
-github.com/brian-nunez/task-orchestration v0.0.4 h1:s/tkh8A2dK01OcYmV5avcbbOfxuLLgrlWdMWy4TkGbE=
-github.com/brian-nunez/task-orchestration v0.0.4/go.mod h1:7yXhFzLt6+106TuwxIXNwrAm8c47p7qW6O0SGMKDh2g=
+github.com/brian-nunez/task-orchestration v0.0.5 h1:0YqbtnQnnDpxbf5kMgMGu/tyszdyI0yE4h7gpEIE748=
+github.com/brian-nunez/task-orchestration v0.0.5/go.mod h1:7yXhFzLt6+106TuwxIXNwrAm8c47p7qW6O0SGMKDh2g=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/dustin/go-humanize v1.0.1 h1:GzkhY7T5VNhEkwH0PVJgjz+fX1rhBrR7pRT3mDkpeCY=

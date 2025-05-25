@@ -5,7 +5,7 @@ go 1.23.0
 toolchain go1.23.9
 
 require (
-	github.com/brian-nunez/task-orchestration v0.0.4
+	github.com/brian-nunez/task-orchestration v0.0.5
 	github.com/labstack/echo/v4 v4.13.3
 )
 
