@@ -70,7 +70,7 @@ func Unauthorized() *errorBuilder {
 	return &errorBuilder{
 		httpStatusCode: http.StatusUnauthorized,
 		errorCode:      string(ErrUnauthorized),
-		message:        "Invalid Request",
+		message:        "Unauthorized",
 	}
 }
 
@@ -78,7 +78,7 @@ func NotFound() *errorBuilder {
 	return &errorBuilder{
 		httpStatusCode: http.StatusNotFound,
 		errorCode:      string(ErrNotFound),
-		message:        "Invalid Request",
+		message:        "Not Found",
 	}
 }
 
@@ -86,7 +86,7 @@ func NotAllowed() *errorBuilder {
 	return &errorBuilder{
 		httpStatusCode: http.StatusMethodNotAllowed,
 		errorCode:      string(ErrNotAllowed),
-		message:        "Invalid Request",
+		message:        "Not Allowed",
 	}
 }
 
@@ -94,7 +94,7 @@ func InternalServerError() *errorBuilder {
 	return &errorBuilder{
 		httpStatusCode: http.StatusInternalServerError,
 		errorCode:      string(ErrInternalServerError),
-		message:        "Invalid Request",
+		message:        "Internal Server Error",
 	}
 }
 
@@ -102,7 +102,7 @@ func ServiceNotAvailable() *errorBuilder {
 	return &errorBuilder{
 		httpStatusCode: http.StatusServiceUnavailable,
 		errorCode:      string(ErrServiceUnavailable),
-		message:        "Invalid Request",
+		message:        "Service Not Available",
 	}
 }
 
