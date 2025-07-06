@@ -16,7 +16,7 @@ var pool *worker.WorkerPool
 
 func init() {
 	pool = &worker.WorkerPool{
-		Concurreny:   10,
+		Concurrency:  10,
 		LogPath:      "logs",
 		DatabasePath: "tasks.db",
 	}
