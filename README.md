@@ -18,6 +18,9 @@ It serves as a central, versioned entry point for handling requests, managing ta
 go run ./cmd/main.go
 ```
 
+The server listens on port `8080` by default. Set the `PORT` environment
+variable to override this when running locally.
+
 Or use the dev container:
 
 ```bash
